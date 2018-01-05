@@ -1,0 +1,15 @@
+/**
+ * 1.0.0
+ */
+
+CREATE DATABASE IF NOT EXISTS test
+  DEFAULT CHARSET utf8
+  COLLATE utf8_general_ci;
+
+CREATE TABLE `account` (
+  `id`   INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(64)      NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;

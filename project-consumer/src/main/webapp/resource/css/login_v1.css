@@ -1,0 +1,52 @@
+/*新版登录页login-v1.html样式开始*/
+.counter_con{position: relative; min-height: 380px; display: none;}
+.mar_t21 { margin-top: 21px;}
+.login_tab{width:354px; height:402px; border:1px solid #b4b4b4;}
+.login_tab_tit{height:70px; font-size:20px; color:#969696;}
+.login_tab_tit h2{width:177px;  color:#969696; display: block; float:left; border-bottom:1px solid #c8c8c8; text-align: center; cursor: pointer; font-size: 18px; line-height: 20px; padding: 30px 0 18px 0;}
+.login_tab_tit .state{font-size:20px;border-bottom: 2px solid #faa100; color:#faa100;}
+.login_divCon {position: relative; width:292px; height: 42px; border: 1px solid #c8c8c8; margin:21px 0 30px 26px ; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
+.login_labCon{ position: absolute; top: 0; left: 0; z-index: 100; height:42px; width:42px; line-height:42px; color: #a9a9a9; background: #fff;  font-size:20px; text-align: center;  display: block; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
+.login_inpCon{position: absolute; height:42px; width:230px; border: none; line-height: 42px;font-size:18px; color:#3c3c3c; display: block; float:left; padding: 0 20px 0 42px;-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; background-color: transparent;}
+input.login_inpCon:focus { top:-1px; left: -1px; border: 1px solid #faa100;}
+.login_inpCon::-webkit-placeholder { color: #b4b4b4; font-size: 16px;}
+.login_inpCon::-moz-placeholder { color: #b4b4b4; font-size: 16px;}
+.login_inpCon::-ms-placeholder { color: #b4b4b4; font-size: 16px;}
+.login_tips { display: none; width: 20px; height: 20px; position: absolute; top: 11px; left: 301px;}
+.login_tips.success { background:url(../images/images/tips-success.png) center center no-repeat;}
+.login_tips.fail { background:url(../images/images/tips-fail.png) center center no-repeat;}
+.login_a_position{ position: static; margin-left: 27px; width: 292px; line-height: 20px; font-size: 14px; color:#787878;}
+.login_a_position label span { display: inline-block; width: 12px; height: 12px; margin-right: 5px; vertical-align: middle; background-color: #6FF; background:url(../images/images/unchecked.png) top center no-repeat; overflow: hidden;}
+.login_a_position label span.checked { background:url(../images/images/checked.png) center center no-repeat;}
+.login_a_position a { display: inline-block; margin-left: 0; vertical-align: middle; text-decoration: none;}
+.login_a_position a.login_divider { width: 2px; height: 14px; margin-left: 9px; margin-right: 9px; background-color: #787878;} 
+.login_a_position a.login_divider+a { margin-left: 0; color: #faa100;}
+.login_a_position label span input { margin-left: -20px;}
+.login_btnStyle{height:44px; line-height: 38px; font-size:20px; color:#fff; background-color:#faa001; width:292px; text-align: center; display: block; margin:34px 0 0 27px; cursor: pointer; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
+.login_register{ display: inline-block;line-height: 14px; font-size:14px; margin-left:27px; margin-top: 20px; color:#787878;}
+#vertyCode,#vertyCode2{margin-top: 35px; margin-bottom: 26px; position: relative;}
+.vertyCode{padding-left: 26px;}
+.yan_code{ position: relative;width: 140px; height: 42px; padding: 0 ; border: 1px solid #c8c8c8; background-color: #fff; float: left; margin-right: 10px;}
+.yan_code input {width: 94px; height: 42px; background-color: #fff; margin-left: 42px;}
+.verifyCode_refresh { background:url(../images/images/refresh.png) center center no-repeat; left: 326px; }
+.no_pay_pwd{ margin-top: -26px;color: #f05a14; padding-left: 35px; height:16px; line-height:16px; font-size:12px; text-decoration: underline; display: none;}
+.no_pay_pwd span{font-size: 16px;}
+.small_tit{padding:20px 0 70px 37px; color: #787878; font-size: 12px; line-height: 26px; display: none;}
+/*新版登录页login-v1.html结束*/
+/*浮动登录页*/
+.login_tab4{width:354px; height:380px; position: fixed; left: 50%; margin-left: -177px; top: 50%; margin-top: -190px;  z-index: 104; border:1px solid #b4b4b4; border-radius: 10px; background-color: #fff;}
+/*联合登录*/
+.gome_login_box{width: 1188px; height: 510px; border: 1px solid #e1e1e1; margin: 20px auto; }
+.gome_login_left{width: 590px; height:510px; border-right:1px solid #e1e1e1; float:left;}
+.gome_login_right{width:590px; height:510px; float:left;}
+.gome_login_left img{width:88px; height:88px;margin:90px 0 0 250px;}
+.gome_login_left h3{width:100%; height:80px; line-height:80px; text-align: center; color:#ff8d00; font-size: 24px;}
+.gome_title{width:100%; height:60px; line-height: 60px; margin:10px 0; text-align: center; font-size: 16px; color:#929292;}
+.gome_reg_content{padding-left:150px;}
+.gome_user{line-height: 20px; font-size: 14px; color:#c99349; margin-top:-4px;}
+.gome_user a{color: #567a9a; text-decoration: underline; margin-left:10px;}
+.gome_width_1190{margin:20px auto 60px; overflow: hidden; width: 1190px;}
+.gome_login_logo{height:40px; line-height: 40px; font-size: 14px; color:#c0c0c0; margin-left:26px;}
+.gome_login_logo a img{height:18px; width:62px;}
+.gome_login_logo a{margin-left:105px;}
+/*联合登录*/

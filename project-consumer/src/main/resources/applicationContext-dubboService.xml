@@ -1,0 +1,256 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://code.alibabatech.com/schema/dubbo 
+	http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <dubbo:application name="${dubbo.application.name}" /> 
+	<dubbo:consumer check="false" />
+   <dubbo:registry id="mgRegistry" protocol="zookeeper" address="${dubbo.registry.address}"/> 
+	<dubbo:registry id="mgRegistryAccount" protocol="zookeeper" address="${dubbo.registry.address.account}"/> 
+    <dubbo:registry id="mgRegistryPo" protocol="zookeeper" address="${dubbo.registry.address.po}"/> 
+    <dubbo:registry id="mgRegistryCms" protocol="zookeeper" address="${dubbo.registry.address.cms}"/> 
+    <dubbo:registry id="mgRegistryCharge" protocol="zookeeper" address="${dubbo.registry.address.charge}"/> 
+    
+ 	<dubbo:reference  registry="mgRegistry" id="gmLoginRelationService"  interface="com.gome.multigold.base.service.IGmLoginRelationService"  retries="0" actives="10" timeout="60000"/>   
+    <dubbo:reference  registry="mgRegistry" id="memberInfoServiceImpl"  interface="com.gome.multigold.base.service.MemberInfoService"  retries="0" actives="10" timeout="60000"/>
+    <dubbo:reference  registry="mgRegistry" id="merchantUserServiceImpl"  interface="com.gome.multigold.base.service.MerchantUserService"  retries="0" actives="10" timeout="60000"/>
+    <dubbo:reference  registry="mgRegistry" id="redisServiceImpl"  interface="com.multigold.ec.web.redis.RedisService" retries="0" actives="10"  timeout="60000"/>
+    <dubbo:reference  registry="mgRegistry" id="fUserService"  interface="com.multigold.ec.web.service.IUserService" retries="0" actives="10"  timeout="60000"/>
+	
+	<dubbo:reference  registry="mgRegistry" id="secPasswdServiceImpl" interface="com.gome.multigold.base.service.SecPasswdService"  retries="0" actives="10"  timeout="60000" />
+	
+	<dubbo:reference  registry="mgRegistry" id="memberAccountService" interface="com.multigold.ec.web.service.IMemberAccountService"  retries="0" actives="10"  timeout="60000" />
+	
+	<dubbo:reference  registry="mgRegistry" id="integral" interface="com.multigold.ec.web.service.IIntegral"  retries="0" actives="10"  timeout="60000" />
+	
+	<dubbo:reference  registry="mgRegistry" id="channelServiceImpl" interface="com.gome.multigold.base.service.ChannelService"  retries="0" actives="10"  timeout="60000" />
+	
+	<dubbo:reference  registry="mgRegistry" id="goldRateServiceImpl" interface="com.gome.multigold.goldprice.service.GoldRateService"  retries="0" actives="10"  timeout="60000" />
+	
+	<dubbo:reference  registry="mgRegistry" id="tSysClntUnioncardService" interface="com.gome.multigold.base.service.TSysClntUnioncardService"  retries="0" actives="10"  timeout="60000" />
+	
+	<dubbo:reference  registry="mgRegistry" id="clientinfoServiceImpl" interface="com.gome.multigold.base.service.ClientinfoService"  retries="0" actives="10"  timeout="60000" />
+	
+	<dubbo:reference  registry="mgRegistry" id="interalRateServiceImpl" interface="com.gome.multigold.base.service.InteralRateService"  retries="0" actives="10"  timeout="60000" />
+	
+	<dubbo:reference  registry="mgRegistry" id="gCardInfoService" interface="com.multigold.ec.web.service.GCardInfoService"  retries="0" actives="10"  timeout="60000" />
+	
+	<dubbo:reference  registry="mgRegistry" id="profile" interface="com.multigold.ec.web.service.IProfile"  retries="0" actives="10"  timeout="60000" />
+	
+	<dubbo:reference  registry="mgRegistry" id="verificationCodeServiceImpl" interface="com.gome.multigold.base.service.VerificationCodeService"  retries="0" actives="10"  timeout="60000" />
+	
+	<dubbo:reference  registry="mgRegistry" id="sysParameterServiceImpl" interface="com.gome.multigold.core.service.SysParameterService"  retries="0" actives="10"  timeout="60000" />
+	
+	<dubbo:reference  registry="mgRegistry" id="userLoginLogService" interface="com.gome.multigold.base.service.IUserLoginLogService"  retries="0" actives="10"  timeout="60000" />
+	
+	<dubbo:reference  registry="mgRegistry" id="sendVCodeServiceImpl" interface="com.multigold.ec.web.service.SendVCodeService"  retries="0" actives="10"  timeout="60000" />
+	
+	<dubbo:reference  registry="mgRegistry" id="webOrderQueryService" interface="com.multigold.ec.web.service.IWebOrderQueryService"  retries="0" actives="10"  timeout="60000" />
+	
+	<dubbo:reference  registry="mgRegistry" id="actconfigServiceImple" interface="com.gome.multigold.base.service.IActconfigService"  retries="0" actives="10"  timeout="60000" />
+	
+	<dubbo:reference  registry="mgRegistry" id="offLineWithDrawService" interface="com.multigold.ec.web.service.OffLineWithDrawService"  retries="0" actives="10"  timeout="60000" />
+	
+	<dubbo:reference  registry="mgRegistry" id="quatoBankService" interface="com.multigold.ec.web.service.QuatoBankService"  retries="0" actives="10"  timeout="60000" />
+	
+	<!-- 优惠券相关接口 -->
+	<dubbo:reference  registry="mgRegistry" id="couponService" interface="com.multigold.ec.web.service.CouponService"  retries="0" actives="10"  timeout="60000" />
+	
+	<!-- 企业用户相关接口 -->
+	<dubbo:reference  registry="mgRegistry" id="comUserInfoService" interface="com.multigold.ec.web.service.EnterpriseUserService"  retries="0" actives="10"  timeout="60000" />
+	
+	<!-- 创建账户 -->
+	<dubbo:reference  registry="mgRegistryAccount" id="createAccountService" interface="com.gome.multigold.account.service.ICreateAccountService"  retries="0" />
+	
+	<!-- 查询账户附属属性 -->
+	<dubbo:reference  registry="mgRegistryAccount"  interface="com.gome.multigold.account.service.IAccountLogicCode" id="logicCode"  retries="0" />
+	
+	<!-- 账户对外查询接口 -->
+	<dubbo:reference   registry="mgRegistryAccount" interface="com.gome.multigold.account.service.ISelectAccountService" id="selectAccountService"  retries="0" />
+	
+	<!-- 账户分页查询接口 -->
+	<dubbo:reference   registry="mgRegistryAccount" interface="com.gome.multigold.account.service.ITransPageService" id="transPageService"   retries="0" />
+	
+	<!-- 账户部件对外查询接口 -->
+	<dubbo:reference   registry="mgRegistryAccount" interface="com.gome.multigold.account.service.IQueryComponentService" id="queryComponentService"  retries="0" />
+	
+	<!-- 账户部件对外修改接口 -->
+	<dubbo:reference   registry="mgRegistryAccount" interface="com.gome.multigold.account.service.IComponentService" id="componentService"  retries="0" />
+	
+	<!-- 申请贷款对外验证查询接口 -->
+	<dubbo:reference   registry="mgRegistryAccount" interface="com.gome.multigold.account.service.IApplyLoanValidate" id="applyLoanValidate"  retries="0" />
+	
+	<!-- 贷款监控对外接口 -->
+	<dubbo:reference   registry="mgRegistryAccount" interface="com.gome.multigold.account.service.IGetLoanBigService" id="getLoanBigService"  retries="0" />
+	
+	<!-- 查询贷款是否可以还款接口 -->
+	<dubbo:reference   registry="mgRegistryAccount" interface="com.gome.multigold.account.service.ILoanIsCanRepayService" id="loanIsCanRepayService"  retries="0" />
+	
+	<!-- 查询贷款对外接口 -->
+	<dubbo:reference   registry="mgRegistryAccount" interface="com.gome.multigold.account.service.ILoanSelectService" id="loanSelectService"  retries="0" />
+	
+	<!-- 总账接口 -->
+	<dubbo:reference   registry="mgRegistryAccount" interface="com.gome.multigold.account.service.IGlreportService" id="glreportService"  retries="0" />
+	
+	<!-- 现金提出报告接口-->
+	<dubbo:reference   registry="mgRegistryAccount" interface="com.gome.multigold.account.service.IWithdrawSelectService" id="withdrawSelectService"  retries="0" />
+	
+	<!-- 对外Daomapper接口 -->
+	<dubbo:reference   registry="mgRegistryAccount" interface="com.gome.multigold.account.service.ISelectDaoMapper" id="selectDaoMapper"  retries="0" />
+	
+	<!-- 调账接口 -->
+	<dubbo:reference   registry="mgRegistryAccount" interface="com.gome.multigold.account.service.IAdjustService" id="adjustmentServiceImpl"   retries="0" />
+	
+	<!-- 商户日终结算接口 -->
+	<dubbo:reference  registry="mgRegistryAccount"  interface="com.gome.multigold.account.service.IBatchAccountService" id="batchAccountService"  retries="0" />
+	
+	<!-- 财务打款接口 -->
+	<dubbo:reference   registry="mgRegistryAccount" interface="com.gome.multigold.account.service.IMerchantWithdrawService" id="merchantWithdrawService"  retries="0" />
+	
+	<!-- 存金戴接口 -->
+	<dubbo:reference   registry="mgRegistryAccount" interface="com.gome.multigold.account.service.IAccountService" id="sgwAccountService"  retries="0" />
+	<!-- 商户创建接口 -->
+	<dubbo:reference   registry="mgRegistryAccount" interface="com.gome.multigold.account.service.IAccountService" id="createCommAccount"  retries="0" />
+	
+	<!-- 保值处理接口 -->
+	<dubbo:reference   registry="mgRegistryAccount" interface="com.gome.multigold.account.service.IAccountService" id="mvalueAccountService"  retries="0" />
+	
+	<!-- 积分接口 -->
+	<dubbo:reference   registry="mgRegistryAccount"  interface="com.gome.multigold.account.service.IAccountService" id="creditAccountService"  retries="0" />
+	
+	<dubbo:reference  registry="mgRegistry" id="elementService" interface="com.eig.cips.dictionary.service.ElementService"  retries="0" actives="10"  timeout="60000" />
+	
+	<dubbo:reference  registry="mgRegistry" id="dictUtilServiceImpl" interface="com.multigold.ec.web.service.DictUtilService"  retries="0" actives="10"  timeout="60000" />
+	
+	<!-- 理财金查询接口 -->
+    <dubbo:reference  registry="mgRegistry" id="tradAccountImpl" interface="com.multigold.ec.web.service.ITradAccount"  retries="0" actives="10"  timeout="60000" />
+	
+	<dubbo:reference  registry="mgRegistry" id="iFinancialGoldService" interface="com.gome.multigold.base.service.IFinancialGoldService"  retries="0" actives="10"  timeout="60000" />
+	<!--  -->
+	 <dubbo:reference registry="mgRegistry"  id="buyOrderPayMent"  interface="com.multigold.ec.web.service.IBuyLcOrderPayMent"  retries="0" actives="10"  timeout="60000"  />
+	 <!-- 会员服务 -->
+     <dubbo:reference registry="mgRegistry"  id="internetInfoServiceImpl" interface="com.gome.multigold.base.service.InternetInfoService"  retries="0" actives="10"  timeout="60000"  /> 
+	
+	 <!-- 银行卡 -->
+	<dubbo:reference interface="com.gome.multigold.service.ClUnionCardService" id="clUnionCardServiceImpl"  timeout="60000" registry="mgRegistryPo"  retries="0" />
+	
+	<!-- 客户损益统一处理接口 -->
+	<dubbo:reference interface="com.gome.multigold.service.ICustomerPayoffService"   id="customerPayoff" timeout="60000" registry="mgRegistryPo"  retries="0" />
+	
+	<!-- 贷款申请、提现申请、结束保值 -->
+	<dubbo:reference interface="com.gome.multigold.service.IAccountDispatchService"  id="accountDispatchService" timeout="60000" registry="mgRegistryPo"  retries="0" />
+	
+	<!--   提现service    -->
+	<dubbo:reference interface="com.gome.multigold.service.TPoWithdrawCashService"   id="tPoWithdrawCashService"  timeout="20000" group="tPoWithdrawCashService" retries="0" registry="mgRegistryPo"/>
+	
+	<!-- 数据计算 -->
+	<dubbo:reference interface="com.gome.multigold.service.ICaculateService"   id="caculateService" timeout="60000" registry="mgRegistryPo"  retries="0" />
+	
+	<!-- 存金戴生成订单、查询-->
+	<dubbo:reference interface="com.gome.multigold.service.IDepositGoldOrderService" id="depositGoldOrderServiceImpl" timeout="60000"  registry="mgRegistryPo"  retries="0" />
+	
+	<!-- 存金戴订单副表、存金戴详情 -->
+	<dubbo:reference interface="com.gome.multigold.service.IDepositGoldService"  id="depositGoldService" timeout="60000" registry="mgRegistryPo"  retries="0" />
+
+	<!-- 黄金券购金详情 -->
+	<dubbo:reference interface="com.gome.multigold.service.IGcoupDetailService"  id="gcoupDetailService" timeout="60000"  registry="mgRegistryPo"  retries="0" />
+	
+	<!-- 黄金卡 -->
+	<dubbo:reference interface="com.gome.multigold.service.IGoldCardService"  id="goldCardService" timeout="60000" registry="mgRegistryPo"  retries="0" />
+	
+	<!-- 报文日志接口 -->
+	<dubbo:reference interface="com.gome.multigold.service.IMsgLogService" id="msgLogService" timeout="60000" registry="mgRegistryPo"  retries="0" />
+	
+	<!-- 提供内部业务使用的黄金券 -->
+	<dubbo:reference interface="com.gome.multigold.service.IGoldOnPaper"  id="goldOnPaper" timeout="60000" registry="mgRegistryPo"  retries="0" />
+	
+	<!-- 外部调用的黄金券接口 -->
+	<dubbo:reference interface="com.gome.multigold.service.IGoldOnPaperPure" id="goldOnPaperPure" timeout="60000" registry="mgRegistryPo"  retries="0" />
+	
+	<!--  黄金卡订单副表 -->
+	<dubbo:reference interface="com.gome.multigold.service.IOrderDetailMultiGoldService" id="orderDetailMultiGoldService" timeout="60000" registry="mgRegistryPo"  retries="0" />
+	
+	<!-- 调用oltp接口 -->
+	<dubbo:reference interface="com.gome.multigold.service.IOrderOltpService"  id="orderOltpService" timeout="60000" registry="mgRegistryPo"  retries="0" />
+	
+	<!-- 注册、签到送金豆-->
+	<dubbo:reference interface="com.gome.multigold.service.IPoactservice"   id="poactService" timeout="60000" registry="mgRegistryPo"  retries="0" />
+	
+	<!-- 交易对外接口 -->
+	<dubbo:reference interface="com.gome.multigold.service.ITradingService"   id="tradingService" timeout="60000"  registry="mgRegistryPo"  retries="0" />
+	
+	<!-- 买金订单-->
+	<dubbo:reference interface="com.gome.multigold.service.IOrderService"  id="buyGoldOrderService"  group="buyGoldOrderService"  timeout="60000" registry="mgRegistryPo"  retries="0" />
+	
+	<!-- 买理财金订单 -->
+	<dubbo:reference interface="com.gome.multigold.service.IOrderService" timeout="60000" id="buyLCGoldOrderService" group="buyLCGoldOrderService"  registry="mgRegistryPo"  retries="0" />
+	
+	<!--  鉴权订单 -->
+	<dubbo:reference interface="com.gome.multigold.service.IOrderService" timeout="60000" id="clUnionCardOrderService"  group="clUnionCardOrderService" registry="mgRegistryPo"  retries="0" />
+	
+	<!--  活转定接口 -->
+	<dubbo:reference interface="com.gome.multigold.service.IOrderService" timeout="60000" id="currentToSavingsOrderService" group="currentToSavingsOrderService"  registry="mgRegistryPo"  retries="0" />
+	
+	<!--  黄金卡订单 -->
+	<dubbo:reference interface="com.gome.multigold.service.IOrderService" timeout="60000" id="goldCardOrderService" group="goldCardOrderService" registry="mgRegistryPo"  retries="0" />
+	
+	<!--  线上消费 -->
+	<dubbo:reference interface="com.gome.multigold.service.IOrderService" timeout="60000" id="goldConsumeOrderService" group="goldConsumeOrderService"  registry="mgRegistryPo"  retries="0" />
+	
+	<!--  贷款还款-->
+	<dubbo:reference interface="com.gome.multigold.service.IOrderService" timeout="60000" id="loanRepaymentOrderService" group="loanRepaymentOrderService" registry="mgRegistryPo"  retries="0" />
+	
+	<!--  多边收银台生成订单 -->
+	<dubbo:reference interface="com.gome.multigold.service.IOrderService" timeout="60000" id="multiGoldCashierOrderService" group="multiGoldCashierOrderService" registry="mgRegistryPo"  retries="0" />
+	
+	<!-- 订单查询 -->
+	<dubbo:reference interface="com.gome.multigold.service.IOrderService" timeout="60000" id="queryOrderService" group="queryOrderService"  registry="mgRegistryPo"  retries="0" />
+	
+	<!--  卖金订单 -->
+	<dubbo:reference interface="com.gome.multigold.service.IOrderService" timeout="60000" id="sellGoldOrderService" group="sellGoldOrderService"   registry="mgRegistryPo"  retries="0" />
+	
+	<!--  订单修改 -->
+	<dubbo:reference interface="com.gome.multigold.service.IOrderService" timeout="60000" id="updateOrderService" group="updateOrderService"  registry="mgRegistryPo"   retries="0" />
+
+    <!--  现金账户银联充值接口 -->
+	<dubbo:reference interface="com.gome.multigold.service.IOrderService" timeout="60000" id="cashRechargeOrderService" group="cashRechargeOrderService"  registry="mgRegistryPo"   retries="0" />
+
+  	<!-- 费用计算 -->
+	<dubbo:reference interface="com.gome.multigold.charge.service.IFeeCalculate"  timeout="60000"  id="feeCalculate" registry="mgRegistry"  retries="0" />
+	
+	<!-- Banner接口服务 -->
+   <dubbo:reference interface="com.gome.multigold.cms.service.BannerService"  timeout="60000"   id="bannerServiceImpl"  registry="mgRegistryCms"  retries="0" />
+   
+   <!-- cms帮助中心 -->
+   <dubbo:reference interface="com.gome.multigold.cms.service.ITemplateService"  timeout="60000"   id="templateServiceImpl"  registry="mgRegistryCms"  retries="0" />
+   
+   <!-- 提现申请 -->
+	<dubbo:reference interface="com.gome.multigold.service.TPowithdrawCashApplyService" timeout="80000" id="tPowithdrawCashApplyService" group="tPowithdrawCashApplyService" retries="0" registry="mgRegistryPo"/>
+	
+	<!--      贷款申请    -->
+	<dubbo:reference interface="com.gome.multigold.service.IPoApplyLoansService" id="poApplyLoansService" group="poApplyLoansService"  timeout="80000"  retries="0" registry="mgRegistryPo"/> 
+	
+	<!--      贷款单查询    -->
+	<dubbo:reference interface="com.gome.multigold.service.IApplyLoansDaoService" id="applyLoansDaoService" group="applyLoansDaoService" timeout="80000"  retries="0" registry="mgRegistryPo"/> 
+	
+	<!-- 易宝支付service -->
+	<dubbo:reference interface="com.gome.multigold.service.IYeePayService" id="yeePayService" group="yeePayService" timeout="80000"  retries="0" registry="mgRegistryPo"/>
+	
+	<!-- 区域地址联动 -->
+	<dubbo:reference interface="com.gome.multigold.goldmanage.service.TGoldAddrParamService" id="tGoldAddrParamService" timeout="80000"  retries="0" registry="mgRegistry"/>
+	
+	<!--计算还可购买调用接口  -->
+	<dubbo:reference  registry="mgRegistry" id="limitRuleServiceImpl2"  interface="com.gome.multigold.base.service.LimitRuleService2" retries="0" actives="10"  timeout="60000"/>
+	<!-- 根据用户编码查询用户等级 -->
+	<dubbo:reference registry="mgRegistry" interface="com.gome.multigold.charge.service.TBaseClientLevelService" id="tBaseClientLevelService" retries="0" actives="10"  timeout="60000"></dubbo:reference>
+	<!--用户等级规则列表  -->
+	<dubbo:reference registry="mgRegistry" interface="com.gome.multigold.charge.service.TBaseLevelRuleService" id="TBaseLevelRuleService" retries="0" actives="10"  timeout="60000"></dubbo:reference>
+	<!-- 费用处理 -->
+	<dubbo:reference registry="mgRegistry" interface="com.gome.multigold.base.service.IFeeBaseService" id="feeBaseService" retries="0" actives="10"  timeout="60000"></dubbo:reference>
+	
+	<!-- 提现最高限额 -->
+	<dubbo:reference interface="com.gome.multigold.service.IWithdrawLimitService" id="withdrawLimitService" group="withdrawLimitService" timeout="80000"  retries="0" registry="mgRegistryPo"/>
+	
+	</beans>
