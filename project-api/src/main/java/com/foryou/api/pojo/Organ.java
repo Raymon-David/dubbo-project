@@ -27,10 +27,12 @@ public class Organ extends BaseDataModel {
 
     private String updateUser;//修改人
 
+    @Override
     public Long getId() {
         return id;
     }
 
+    @Override
     public void setId(Long id) {
         this.id = id;
     }

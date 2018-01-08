@@ -396,7 +396,6 @@ public class JedisUtil {
     /**
      * 从缓存中获取对象
      * @param key
-     * @param value
      * @return
      */
     public static Object getByte(byte[] key){

@@ -37,12 +37,13 @@ public class CookieTools {
     }
     /**获取cookie*/
     public static String getCookieValue(String key,HttpServletRequest request){
-        if( request.getCookies() != null)
+        if( request.getCookies() != null){
             for(Cookie cookie : request.getCookies()){
                 if(cookie.getName().equals(key)) {
                     return cookie.getValue();
                 }
             }
+        }
         return null;
     }
 
