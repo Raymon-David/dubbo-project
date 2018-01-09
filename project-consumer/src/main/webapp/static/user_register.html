@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>国美黄金注册-个人用户</title>
+<!--引入样式 -->
+<!--#include virtual="/static/cssConStatic.html" -->
+<!--引入样式 end-->
+<script src="<!--#include virtual='/index/domain?d=js' -->/resource/js/jquery-1.7.1.min.js"></script>
+<style>
+#errorbox{position:absolute;left:0; top:42px; color: #f00;}
+#errorbox1{position:absolute;left:0; top:42px; color: #f00;}
+</style>
+</head>
+<body style="background-color: #f5f5f5;">
+<!--#include virtual="/index/header" -->
+
+<!-- ****头部**** -->
+<a id="a1" name="a1"></a>
+<div class="heard_1190">
+    <div class="logoPhone clearfix">
+        <div class="Lg">
+            <a href="/index.html" class=""><img width="177" height="56" src="<!--#include virtual='/index/domain?d=css' -->/resource/images/static/icon_logo.png"></a>
+        </div>
+        <div class="tel_img clearfix">
+            <img src="<!--#include virtual='/index/domain?d=css' -->/resource/images/static/tel_img.png"> 
+            <dl>
+              <dt>400-858-9955</dt>
+              <dd>(周一至周五 9:00-21:00)</dd>
+            </dl>   
+        </div>        
+    </div>
+</div>
+<!-- banner开始 -->
+    <div class="hjb-bannerbox" style="margin-top:30px;">
+        <div class="hjb-banner">
+           <!--#include virtual="/banner/banner?keyword=pc_index_banner&type=2" -->
+        </div>
+        <div class="reg_banner_1190">
+            <!-- <div class="tg_san1">
+                <img src="#include virtual='/index/domain?d=css'/resource/images/static/tg_san1.png">
+            </div> -->
+            <div class="tg_reg_box">
+                <div class="tg_reg_title clearfix">
+                    <h3>注册</h3>
+                    <div class="tg_isreg">
+                        <span> 已有账号？</span>
+                        <a href="/index/tologin">登录</a>    
+                    </div>
+                </div>
+                <div class="tg_reg_content">
+                    <form action="" method="post" id="submitForm" name="submitForm">
+                        <div class="tg_reg_div_box clearfix">
+                            <div class="reg_ico_p"><span class="iconfont">&#xe61c;</span></div>
+                            <div class="tg_reg_xd_wput">
+                                <input class="tg_reg_input_n" name="phone" id="phone" maxlength="11" placeholder="手机号码" type="text"/>
+                            </div>
+                            <div id="errorbox_phone"></div>
+                            <div class="tg_reg_w">
+                                <span class="iconfont tg_reg_ws" id="tg_right1">&#xe668;</span>
+                                <span class="iconfont tg_reg_wf" id="tg_error1">&#xe669;</span>
+                            </div>
+                        </div>
+                        <div class="tg_reg_div_box clearfix">
+                            <div class="reg_ico_p"><span class="iconfont">&#xe61f;</span></div>
+                            <input  maxlength="6" name="verifyCode1" id="verifyCode1" type="text" placeholder="图片验证码" class="tg_reg_input_n tg_reg_input_small" >
+                            <img id="verifyCode_true" onclick="reflashImage()" class="pic_code reg_img_yz" src="<!--#include virtual='/index/domain?d=css' -->/resource/images/images/createChkcode.jpg" height="44" width="110">
+                            <a href="javascript:void(0);" class="reg_refresh" onclick="reflashImage();"><span class="iconfont">&#xe66a;</span></a>
+                            
+                            <div id="errorbox1"></div>
+                            <div class="tg_reg_w">
+                                <span class="iconfont tg_reg_ws" id="tg_right5">&#xe668;</span>
+                                <span class="iconfont tg_reg_wf" id="tg_error5">&#xe669;</span>
+                            </div>
+                        </div> 
+                        <div class="tg_reg_div_box clearfix">
+                            <div class="reg_ico_p"><span class="iconfont">&#xe61f;</span></div>
+                            <input class="tg_reg_input_n tg_reg_input_small" type="text" name="verifyCode" id="verifyCode" placeholder="短信验证码" maxlength="6"/>
+                            <input type="hidden" id="token" name="tempToken"/>
+                            <input type="button" id="verCode" onclick="sendVerifyCode(this)" class="tg_reg_identifying_code"  disabled="disabled" value="获取验证码" />
+                            <div id="errorbox"></div>
+                            <div class="tg_reg_w">
+                                <span class="iconfont tg_reg_ws" id="tg_right2">&#xe668;</span>
+                                <span class="iconfont tg_reg_wf" id="tg_error2">&#xe669;</span>
+                            </div>
+                        </div>
+                        <div class="tg_reg_div_box clearfix">
+                            <div class="reg_ico_p"><span class="iconfont">&#xe620;</span></div>
+                            <div class="tg_reg_xd_wput">
+                                <input class="tg_reg_input_n" name="password" id="password" maxlength="16" placeholder="登录密码,8-16位字母,数字组合" type="password" autocomplete="off"/>
+                            </div>
+                            <div class="tg_reg_w">
+                                <span class="iconfont tg_reg_ws" id="tg_right3">&#xe668;</span>
+                                <span class="iconfont tg_reg_wf" id="tg_error3">&#xe669;</span>
+                            </div>
+                        </div> 
+                        <div class="tg_reg_div_box clearfix">
+                            <div class="reg_ico_p"><span class="iconfont">&#xe620;</span></div>
+                            <div class="tg_reg_xd_wput">
+                                <input class="tg_reg_input_n" name="confirm_password" id="confirm_password" maxlength="16" placeholder="确认密码,8-16位字母,数字组合" type="password" autocomplete="off"/>
+                            </div>
+                            <div class="tg_reg_w">
+                                <span class="iconfont tg_reg_ws" id="tg_right4">&#xe668;</span>
+                                <span class="iconfont tg_reg_wf" id="tg_error4">&#xe669;</span>
+                            </div>
+                        </div>
+                        <p class="tg_reg_agree_p_x">
+                            <input class="checkbox_x agree" type="checkbox" onclick="unAgree(this);">同意
+                            <a href="javascript:void(0);" class="popup">多边金宝 - 国美黄金客户协议</a>
+                        </p>
+                        <p class="tg_reg_agree_p_x">
+                            <input type="submit" class="ban x_nextone sub_btn"  style="width:290px;" id="go_submit" disabled="disabled"  value="立即注册">
+                        </p>
+                        <p class="tg_reg_p">国美黄金账户由阳光保险全程托管</p>
+                    </form>  
+                </div>
+            </div>
+            <!-- <div class="tg_san2">
+                   <img src="#include virtual='/index/domain?d=css'/resource/images/static/tg_san2.png">
+               </div>   -->   
+        </div> 
+       
+    </div>
+    <!-- banner结束 -->
+
+
+<div class="reg_content_1190">
+    <div>
+        <h3 class="w_cjb">国美黄金可以做什么？</h3>
+        <div class="reg_product">
+            <img src="<!--#include virtual='/index/domain?d=css' -->/resource/images/static/reg_img12.png">
+            <div class="tg_product clearfix">
+                <dl class="tg_product_name">
+                    <dt><img src="<!--#include virtual='/index/domain?d=css' -->/resource/images/static/reg_img13.png"><span>新手专享</span></dt>
+                    <dd>产品规格为10克，每个账户限购1次</dd>
+                </dl>
+                <div class="tg_product_rate">年化<span>22%</span></div>
+                <div class="tg_product_rate">期限<span>15</span>天</div>
+                <dl class="tg_product_time">
+                    <dt>活动时间：</dt>
+                    <dd>2015.12.05<span>-</span>2016.03.31</dd>
+                </dl>
+                <a href="#a1" class="tg_product_btn">马上赚钱</a>
+            </div>
+            <div class="tg_product1 clearfix">
+                <dl class="tg_product_name">
+                    <dt><img src="<!--#include virtual='/index/domain?d=css' -->/resource/images/static/reg_img14.png"><span>金生金</span></dt>
+                    <dd>1克起购</dd>
+                </dl>
+                <div class="tg_product_rate">年化<span>6.8%</span>(最高)</div>
+                <div class="tg_product_rate"><span>1</span>克起购</div>
+                <dl class="tg_product_time">
+                    <dt>活动时间：</dt>
+                    <dd>2015.11.10起</dd>
+                </dl>
+                <a href="#a1" class="tg_product_btn">马上赚钱</a>
+            </div>
+            <ul class="cjb_function clearfix">
+                <li class="cjb_function_list">
+                    <img src="<!--#include virtual='/index/domain?d=css' -->/resource/images/static/tg_img1.png">
+                    <h3>买 金</h3>
+                </li>
+                <li class="cjb_function_list">
+                    <img src="<!--#include virtual='/index/domain?d=css' -->/resource/images/static/tg_img2.png">
+                    <h3>卖 金</h3>
+                </li>
+                <li class="cjb_function_list">
+                    <img style="margin-top:26px;" src="<!--#include virtual='/index/domain?d=css' -->/resource/images/static/tg_img3.png">
+                    <h3>贷 款</h3>
+                </li>
+                <li class="cjb_function_list">
+                    <img style="margin-top:17px;" src="<!--#include virtual='/index/domain?d=css' -->/resource/images/static/tg_img4.png">
+                    <h3>支 付</h3>
+                </li>
+                <li class="cjb_function_list" style="width:240px;">
+                    <img src="<!--#include virtual='/index/domain?d=css' -->/resource/images/static/tg_img5.png">
+                    <h3>存 储</h3>
+                </li>
+                <li class="cjb_function_list">
+                    <img src="<!--#include virtual='/index/domain?d=css' -->/resource/images/static/tg_img6.png">
+                    <h3>收 益</h3>
+                </li>
+                <li class="cjb_function_list">
+                    <img src="<!--#include virtual='/index/domain?d=css' -->/resource/images/static/tg_img7.png">
+                    <h3>黄金券</h3>
+                </li>
+                <li class="cjb_function_list">
+                    <img src="<!--#include virtual='/index/domain?d=css' -->/resource/images/static/tg_img8.png">
+                    <h3>存金戴</h3>
+                </li>
+                <li class="cjb_function_list">
+                    <img src="<!--#include virtual='/index/domain?d=css' -->/resource/images/static/tg_img9.png">
+                    <h3>提 现</h3>
+                </li>
+                <li class="cjb_function_list" style="width:240px;">
+                    <img src="<!--#include virtual='/index/domain?d=css' -->/resource/images/static/tg_img10.png">
+                    <h3>提 金</h3>
+                </li>
+            </ul>
+        </div>
+    </div> 
+    <div>
+        <h3 class="w_cjb">为什么选择国美黄金？</h3>
+        <div class="reg_img_list clearfix">
+            <img src="<!--#include virtual='/index/domain?d=css' -->/resource/images/static/reg_img16.png">
+            <img style="margin-left:35px;" src="<!--#include virtual='/index/domain?d=css' -->/resource/images/static/reg_img17.png">
+            <img style="margin-left:32px;" src="<!--#include virtual='/index/domain?d=css' -->/resource/images/static/reg_img18.png">  
+        </div>
+        
+        <div class="tg-security-mid">
+            <a href="javascript:void(0);"   class="tg-security-item">
+                <span class="hjb-security-icon iconfont">&#xe62c;</span>
+                <span class="hjb-security-name">低门槛高收益</span>
+            </a>
+            <a href="javascript:void(0);"   class="tg-security-item">
+                <span class="hjb-security-icon iconfont">&#xe631;</span>
+                <span class="hjb-security-name">阳光保险安全承保</span>
+            </a>
+            <a href="javascript:void(0);"   class="tg-security-item">
+                <span class="hjb-security-icon iconfont">&#xe62d;</span>
+                <span class="hjb-security-name">国美集团控股</span>
+            </a>
+            <a href="javascript:void(0);"   class="tg-security-item">
+                <span class="hjb-security-icon iconfont">&#xe62a;</span>
+                <span class="hjb-security-name">CFCA权威认证</span>
+            </a>
+           
+        </div>
+         <a href="#a1" class="tg_product_btn1">立即注册</a>
+    </div>  
+</div>
+<div class="reg_footer_bg">
+    <div class="reg_footer_1190">
+        <img src="<!--#include virtual='/index/domain?d=css' -->/resource/images/static/reg_img19.jpg">
+
+    </div>
+
+
+
+</div>
+
+
+<!--主体内容 end -->
+<!--#include virtual="register_agreement.html" -->
+
+<!-- ****底部**** -->
+<!--#include virtual="/static/footer.html" -->
+<script src="<!--#include virtual='/index/domain?d=js' -->/resource/js/gLoad.js"></script>
+<script src="<!--#include virtual='/index/domain?d=js' -->/resource/js/headerLive.js"></script>
+<script src="<!--#include virtual='/index/domain?d=js' -->/resource/js/homeLive.js"></script>
+
+<script src="<!--#include virtual='/index/domain?d=js' -->/resource/js/content.js"></script>
+<script type="text/javascript" src="<!--#include virtual='/index/domain?d=js' -->/resource/js/jquery.validate.js"></script>
+<script type="text/javascript" src="<!--#include virtual='/index/domain?d=js' -->/resource/js/common.js"></script>
+<script type="text/javascript" src="<!--#include virtual='/index/domain?d=js' -->/resource/js/verifycode.js"></script>
+<script>
+//刷新验证码
+function reflashImage(){
+    $("#verifyCode1").val("");   
+    var url = "/base/common/createChkcode?t="+new Date().getTime();
+    $("#verifyCode_true").attr("src",url);   
+};
+
+    $(document).ready(function() {
+        reflashImage();
+        var timestamp = (new Date()).valueOf(); 
+        
+        
+        $("#phone").val("");
+       /* $("#verCode").removeAttr("disabled"); */
+       $("#phone").click(function(){
+            $(this).css("border-color","#f90");
+       });
+        $("#phone").blur(function(){
+            $(this).css('border-color','#c8c8c8');
+          var value=$(this).val();
+           var length = value.length;   
+          var mobile = /^1[3|4|5|8|7][0-9]\d{4,8}$/;
+         if(mobile.test(value) && length == 11){
+            var  _data={
+                 'mobile' :$("#phone").val()
+              };
+             var dt = {
+                     json : JSON.stringify(_data)
+                 };
+             $.ajax({
+                 type : "post",
+                 url : dynUrl + "/validation/checkPhoneNum",
+                 data : dt,
+                 dataType : "json",
+                 success : function(data) {
+                   if(data){    
+                        
+                        $("#tg_right1").show();
+                        $("#tg_error1").hide();   
+                     
+                   }else{
+                       
+                        $("#tg_right1").hide();
+                        $("#tg_error1").show();
+                   };
+                     
+                 },
+                 error : function() {
+                     
+                 }
+             });
+           
+          }else{
+                $("#tg_right1").hide();
+                 $("#tg_error1").show();
+          };
+        });
+        $("#verifyCode1").click(function(){
+            $(this).css("border-color","#f90");
+       });
+        $("#verifyCode1").blur(function(){
+            $(this).css('border-color','#c8c8c8');
+            var value=$(this).val();
+            var length = value.length;
+            if( length == 6){
+                var _data={
+                 'mobile' :$("#phone").val()
+                };
+                var dt = {
+                     json : JSON.stringify(_data)
+                };
+                $.ajax({
+                     type : "post",
+                     url : dynUrl + "/validation/checkPhoneNum",
+                     data : dt,
+                     dataType : "json",
+                     success : function(data) {
+                       if(data){
+                            $("#verCode").removeAttr('disabled');
+                            $("#verCode").removeClass('tg_reg_identifying_code');
+                            $("#verCode").addClass('tg_reg_identifying_code2');  
+                       }else{
+                            $("#verCode").attr('disabled','disabled');
+                            $("#verCode").removeClass('tg_reg_identifying_code2');
+                            $("#verCode").addClass('tg_reg_identifying_code');
+                       };
+                         
+                     },
+                     error : function() {
+                         
+                     }
+                });
+                $("#tg_right5").show();
+                $("#tg_error5").hide();
+            }else{
+                $("#tg_right5").hide();
+                $("#tg_error5").show(); 
+            };
+        });
+        $("#verifyCode").click(function(){
+            $(this).css("border-color","#f90");
+       });
+        $("#verifyCode").blur(function(){
+            $(this).css('border-color','#c8c8c8');
+            var value=$(this).val();
+            var length = value.length;
+            if($("#token").val()!='' && length != 0){
+                $("#tg_right2").show();
+                $("#tg_error2").hide();
+            }else{
+                $("#tg_right2").hide();
+                $("#tg_error2").show(); 
+            };
+        });
+        $("#password").click(function(){
+            $(this).css("border-color","#f90");
+       });
+        $("#password").blur(function(){
+            $(this).css('border-color','#c8c8c8');
+            var value=$(this).val();
+           var length = value.length;
+           var passwd = /^(?!\d+$)(?![A-Za-z_]+$)[a-zA-Z0-9_]{8,16}$/;
+           if(passwd.test(value) && length!=0){
+                 $("#tg_right3").show();
+                $("#tg_error3").hide();
+           }else{
+                $("#tg_right3").hide();
+                $("#tg_error3").show(); 
+           }
+        });
+        $("#confirm_password").click(function(){
+            $(this).css("border-color","#f90");
+       });
+        $("#confirm_password").blur(function(){
+            $(this).css('border-color','#c8c8c8');
+             var value=$(this).val();
+           if(value == $("#password").val() && value!=''){
+                 $("#tg_right4").show();
+                $("#tg_error4").hide();
+           }else{
+                $("#tg_right4").hide();
+                $("#tg_error4").show(); 
+           }
+        });
+        
+        jQuery.validator.addMethod("isMyPhone", function(value, element) {       
+            var length = value.length;   
+            var mobile = /^1[3|4|5|8|7][0-9]\d{4,8}$/;   
+            return this.optional(element) || (length == 11 && mobile.test(value));       
+        }, "请填写有效的手机号码"); 
+        jQuery.validator.addMethod("isVerCode", function(value, element) { 
+            return this.optional(element) || $("#token").val()!='';
+        }, "请获取验证码！"); 
+        jQuery.validator.addMethod("isMyPasswd", function(value, element) { 
+            var passwd = /^(?!\d+$)(?![A-Za-z_]+$)[a-zA-Z0-9_]{8,16}$/;   
+            return this.optional(element) || passwd.test(value);    
+        }, "密码必须8-16位的字母,数字的组合");
+        $("#submitForm").validate({
+            rules: {
+                phone : {
+                    required : true,
+                    digits : true,
+                    maxlength : 11,
+                    minlength : 11,
+                    isMyPhone:true,
+                    remote:{
+                        url : dynUrl + "/validation/checkPhoneNum",
+                        type : "post",
+                        data : {
+                            json:function(){
+                                var _data = {
+                                    'mobile' :$("#phone").val()
+                                };
+                                return JSON.stringify(_data);
+                            }
+                        }
+                    }
+                },
+                verifyCode: {
+                    isVerCode:true,
+                    required: true,
+                    digits:true
+                },
+                verifyCode1: {
+                    required: true,
+                    minlength:6
+                },
+                password: {
+                    required: true,
+                    minlength: 8,
+                    maxlength: 16,
+                    isMyPasswd: true
+                },
+                confirm_password: {
+                    required: true,
+                    equalTo: "#password"
+                }
+            },
+            messages: {
+                phone : {
+                    required : "请输入手机号码",
+                    digits : "请输入整数数字",
+                    maxlength : "请输入11位的手机号码",
+                    minlength : "请输入11位的手机号码",
+                    remote : "用户名已经被注册"
+                },
+                verifyCode:{
+                    required:"请获取验证码",
+                    digits:"请输入正确的验证码"
+                },
+                verifyCode1:{
+                    required:"请输入验证码",
+                    minlength:"请输入正确的验证码"
+                },
+                password:{
+                     required: "请输入新密码",
+                     minlength: "密码不能低于8位"
+                },
+                confirm_password: {
+                     required: "请输入确认密码",
+                     equalTo: "两次输入密码不一致"
+                }
+            },
+            errorPlacement: function(error, element) {
+                if(element.is("#verifyCode") || element.is("#verifyCode1")){
+                    if(element.is("#verifyCode")){
+                        $('#errorbox').children('label').remove(); 
+                        $('#errorbox').html("");
+                        error.appendTo($('#errorbox'));   
+                    }else if(element.is("#verifyCode1")){
+                        $('#errorbox1').children('label').remove(); 
+                        $('#errorbox1').html("");
+                        error.appendTo($('#errorbox1'));    
+                    }
+                   
+                }else{
+                    error.insertAfter(element);
+                }
+            },
+            submitHandler: function() {
+                var phone = $("#phone").val(),
+                    repasswd = $("#confirm_password").val(),
+                    passwd = $("#password").val(),
+                    check_code = $("#verifyCode").val(),
+                    mobileCode = $("#verifyCode1").val(),
+                    token = $("#token").val();
+                    var _data = {
+                        'mobile' : phone,
+                        'password' : passwd,
+                        'repassword' : repasswd,
+                        'chkcode' : check_code,
+                        'mobileCode' : mobileCode,
+                        'tempToken' : token
+                         }
+                    var dt = {
+                        json : JSON.stringify(_data)
+                    };
+                $.ajax({
+                    type : "post",
+                    url : dynUrl + "/user/register",
+                    data : dt,
+                    dataType : "json",
+                    success : function(data) {
+                        if(data.result.status.code == "1"){
+                            window.location.href = dynUrl + "/static/reg_success.html";
+                        }else{
+                            $('#errorbox').html("");
+                            $("#errorbox").append("<label class='error'>" + data.result.status.message + "</label>");
+                        }
+                    },
+                    error : function() {
+                        $("#errorbox").html("");
+                        $("#errorbox").append("<label class='error'>获取验证码出错！</label>");
+                    }
+                });
+            }
+        });
+        
+        
+    });
+
+
+    function sendVerifyCode(val){
+        if($("#phone").val()==''){
+            $("#errorbox_phone").html("");
+            $("#errorbox_phone").append("<label class='error'>请输入手机号</label>");
+            return ;
+        }
+        if($("#phone").val().length<11){
+            $("#errorbox_phone").html("");
+            $("#errorbox_phone").append("<label class='error'>请输入正确的手机号</label>");
+            return ;
+        }
+        if(!(/^1[3|4|5|8|7][0-9]\d{4,8}$/.test($("#phone").val()))){ 
+            $("#errorbox_phone").html("");
+            $("#errorbox_phone").append("<label class='error'>请输入正确的手机号</label>")
+            return ; 
+        }
+        var phone_val = $("#phone").val();
+        var _data = {
+            'mobile' : phone_val
+        }
+        var dt = {
+                json : JSON.stringify(_data)
+            };
+        $.ajax({
+            url:dynUrl + "/validation/checkPhoneNum",
+            async:true,
+            type:'post',
+            data:dt,
+            dataType:'json',
+            success:function(response){           
+                if (response == true ) {
+                    getVerifyCode1(val,dynUrl + "/base/common/mobileCodeImg",$("#phone").val(),$("#verifyCode1").val());
+                    return ; 
+                }else{
+                    $("#errorbox_phone").html("");
+                    $("#errorbox_phone").append("<label class='error'>"+response.error.errDesc.message+"</label>")
+                    return ; 
+                }
+            },
+            error:function(){
+               // alert("ajax调用异常！");
+                return ; 
+            }
+        });
+    }
+    function unAgree(obj){
+        if(obj.checked){
+            $("#go_submit").removeAttr("disabled");
+        }else{
+            $("#go_submit").attr("disabled","disabled");
+        }
+    }
+
+
+</script>
+</body>
+</html>

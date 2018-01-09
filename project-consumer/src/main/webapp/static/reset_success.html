@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>重置密码成功</title>
+<!--引入样式 -->
+<!--#include virtual="/static/cssConStatic.html" -->
+<!--引入样式 end-->
+<script src="<!--#include virtual='/index/domain?d=js' -->/resource/js/jquery-1.7.1.min.js"></script>
+</head>
+<body>
+
+<!-- ****头部**** -->
+<!--#include virtual="/static/header.html" -->
+<!--主体内容 -->
+<!--主体内容 -->
+<div class="content_bg">
+    <div class="lr_con_width">
+        <div class="reg_boxyz">
+            <div class="reg_step_box">
+                <p class="has_name">已有账号？<a href="/index/tologin">立即登录</a></p>
+                <div class="img_step"><img src="<!--#include virtual='/index/domain?d=css' -->/resource/images/images/reg_step3.jpg" alt=""></div>
+                <div class="reg_success clearfix">
+                    <img class="fl" src="<!--#include virtual='/index/domain?d=css' -->/resource/images/static/withdraw_success.png" width="95" height="95" alt="">
+                    <dl class="fr">
+                        <dt>密码修改成功!</dt>
+                        <dd><span class="num_jump">5</span>秒后跳转到登录页面</dd>
+                    </dl>
+                </div>
+                <a class="lr_btn_sty now_tz" href="/index/tologin">立即跳转</a>
+            </div>
+        </div>
+    </div> 
+</div>
+
+
+<!-- ****底部**** -->
+<!--#include virtual="/static/footer.html" -->
+<script src="<!--#include virtual='/index/domain?d=js' -->/resource/js/gLoad.js"></script>
+<script src="<!--#include virtual='/index/domain?d=js' -->/resource/js/headerLive.js"></script>
+<script src="<!--#include virtual='/index/domain?d=js' -->/resource/js/content.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {  
+            function jump(count) {    
+                window.setTimeout(function(){    
+                    count--;    
+                    if(count > 0) {    
+                        $('.num_jump').html(count) ;    
+                        jump(count);    
+                    } else {    
+                    	window.location.href = dynUrl + "/index/tologin"   
+                    }    
+                }, 1000);    
+            }    
+            jump(5);    
+        });    
+    </script>
+</body>
+</html>
