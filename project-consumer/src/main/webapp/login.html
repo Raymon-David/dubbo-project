@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>登录页</title>
+    <link href="/resource/css/public.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="resource/css/static.css"/>
+    <link rel="stylesheet" type="text/css" href="resource/css/login_v1.css"/>
+    <script src="/resource/js/jquery-1.7.1.min.js"></script>
+    <style>
+        #errorbox,#errorbox2,#errorbox4{position: absolute; left: 36px; top: -40px;}
+        #errorbox label.error,#errorbox2 label.error {color: #333; padding:8px; height:16px; line-height:16px; font-size:14px; font-weight: normal; width:278px; border:1px solid #fadcd3; display:block; background:#fdeee9;}
+        .error_ico{color:#f17975; margin-right:7px; font-size: 18px;}
+
+        #errorbox,#errorbox4{position: absolute; left: 26px; top: 46px;}
+        #errorbox label.error,#errorbox2 label.error,#errorbox3 label.error,#errorbox4 label.error,#errorbox5 label.error,#errorbox6 label.error,#errorbox7 label.error{color: #faa001; padding:0px; height:14px; line-height:14px; font-size:12px; font-weight: normal; width:278px; border:none; display:block; background:#fff;}
+        .error_ico{color:#faa001; margin-right:7px; font-size: 14px;}
+        #errorbox2,#errorbox5 {position: absolute; left: 26px; top: 120px;}
+        #errorbox3,#errorbox6 {position: absolute; left: 26px; top: 172px; background-color: #ffebd2;}
+        #errorbox3 label.error,#errorbox6 label.error{ width: 292px; height: 24px; line-height: 24px; background: none;}
+        #errorbox7 {position: absolute; left: 26px; top: 50px; background-color: #ffebd2;}
+        #errorbox7 label.error { background-color: #ffebd2; padding: 5px 0;}
+    </style>
+</head>
+<body>
+
+
+<!--#include virtual="/index/header" -->
+
+<div class="con_width_1190">
+    <div class="logo">
+        <a href="/index.html" class=""><img width="213" height="60" src="/resource/images/static/icon_logo.png"></a>
+    </div>
+    <div class="content_box">
+        <div class="login_img">
+            <img width="818" height="404" src="/resource/images/static/login_img.png">
+        </div>
+        <div class="login_tab fl">
+
+            <div class="login_tab_tit clearfix">
+                <h2 class="state">手机号登录</h2>
+                <h2>黄金卡登录</h2>
+            </div>
+            <div class="counter_con_box">
+                <div class="counter_con" style="display:block;">
+                    <form action="" method="post" id="submitForm">
+                        <div id="errorbox"></div>
+                        <div id="errorbox2"></div>
+                        <div id="errorbox3"></div>
+                        <div id="errorbox7"></div>
+                        <input type="hidden" id="errorboxFlag" value="登录金库"/>
+                        <div class="login_divCon mar_t21 clearfix">
+                            <label class="login_labCon"><span class="iconfont">&#xe61c;</span></label>
+                            <input type="text" maxlength="11" class="login_inpCon" placeholder="手机号" id="user_code" name="userName">                     <span class="login_tips"></span>
+                        </div>
+                        <a class="no_pay_pwd" id="no_pay_pwd" onclick="set_password();">
+                            <span class="iconfont">&#xe656;</span>
+                            此账号尚未设置登录秘密，请点此设置
+                        </a>
+                        <div class="small_tit" id="small_tit">
+                            <h3>温馨提示</h3>
+                            <ul>
+                                <li>1，手机号首次登录需要设置登录密码</li>
+                                <li>2，网上账户/手机账户/微信账户登录密码为同一密码</li>
+                            </ul>
+                        </div>
+                        <div id="pass_bon">
+                            <div class="login_divCon pass_bon clearfix" id="pass_bon">
+                                <label class="login_labCon"><span class="iconfont">&#xe61f;</span></label>
+                                <input type="password" class="login_inpCon" placeholder="登录密码" id="password" name="passWord">
+                                <span class="login_tips"></span>
+                            </div>
+                            <div class="vertyCode clearfix" id="vertyCode" style="display: none;">
+                                <div class="yan_code clearfix">
+                                    <label class="login_labCon"><span class="iconfont">&#xe620;</span></label>
+                                    <input type="text" disabled="disabled" maxlength="6" name="verifyCode" id="verifyCode"placeholder="验证码"/>
+                                </div>
+                                <img id="verifyCode_true" onclick="reflashImage()" class="pic_code" src="resource/images/images/createChkcode.jpg" height="44" width="140">
+                                <span class="login_tips verifyCode_refresh"></span>
+                            </div>
+                            <div class="login_a_position">
+                                <!--<label><span><input type="checkbox"/></span>记住用户名</label>-->
+                                <a href="/static/forget_password.html">忘记密码</a>
+                                <a class="login_divider"></a>
+                                <a href="/static/reg_phone.html">免费注册</a>
+                            </div>
+
+                            <input class="login_btnStyle" onclick="isMySubmit();" id="divA" type="submit" value="登 录"/>
+                        </div>
+                        <!--<a href="/static/reg_phone.html" class="login_register">使用第三方理财账户登录</a>-->
+                    </form>
+                </div>
+                <div class="counter_con">
+                    <form action="" method="post" id="submitForm2">
+                        <div id="errorbox4"></div>
+                        <div id="errorbox5"></div>
+                        <div id="errorbox6"></div>
+                        <input type="hidden" id="errorboxFlag2" value="登录金库"/>
+                        <div class="login_divCon mar_t52 clearfix">
+                            <label class="login_labCon"><span class="iconfont">&#xe61c;</span></label>
+                            <input type="text" maxlength="19" class="login_inpCon" placeholder="黄金卡号" id="user_code2" name="userName">                     <span class="login_tips fail"></span>
+                        </div>
+                        <a class="no_pay_pwd" id="no_pay_pwd2" onclick="set_password2();">
+                            <span class="iconfont">&#xe656;</span>
+                            此账号尚未设置登录秘密，请点此设置
+                        </a>
+                        <div class="small_tit" id="small_tit2">
+                            <h3>温馨提示</h3>
+                            <ul>
+                                <li>1，黄金卡首次登录需要设置登录密码</li>
+                                <li>2，网上账户/手机账户/微信账户登录密码为同一密码</li>
+                            </ul>
+                        </div>
+                        <div id="pass_bon2">
+                            <div class="login_divCon clearfix" >
+                                <label class="login_labCon"><span class="iconfont">&#xe61f;</span></label>
+                                <input type="password" class="login_inpCon" placeholder="登录密码" id="password2" name="passWord">
+                                <span class="login_tips success"></span>
+                            </div>
+                            <div class="vertyCode clearfix" id="vertyCode2" style="display: none;">
+                                <div class="yan_code clearfix">
+                                    <label class="login_labCon"><span class="iconfont">&#xe620;</span></label>
+                                    <input type="text" disabled="disabled" maxlength="6" name="verifyCode" id="verifyCode"placeholder="验证码"/>
+                                </div>
+                                <img id="verifyCode_true2" onclick="reflashImage()" class="pic_code" src="resource/images/images/createChkcode.jpg" height="44" width="140">
+                                <span class="login_tips verifyCode_refresh"></span>
+                            </div>
+                            <!--<div class="vertyCode clearfix" style="display:none" id="vertyCode2">
+                                <img id="verifyCode_true2" onclick="reflashImage2()" class="pic_code" src="resource/images/images/createChkcode.jpg" height="26" width="100">
+                                <a href="javascript:void(0);" onclick="reflashImage2();">看不清楚换一张</a>
+                                <input disabled="disabled" maxlength="6" name="verifyCode" id="verifyCode2" type="text" placeholder="验证码" class="yan_code" >
+                            </div>-->
+                            <div class="login_a_position">
+                                <!--<label><span><input type="checkbox"/></span>记住用户名</label>-->
+                                <a href="/static/forget_password.html">忘记密码</a>
+                                <a class="login_divider"></a>
+                                <a href="/static/reg_phone.html">免费注册</a>
+                            </div>
+                            <input class="login_btnStyle" onclick="isMySubmit2();" id="divA2" type="submit" value="登 录"/>
+                        </div>
+                        <!--<a href="/static/reg_phone.html" class="login_register">使用第三方理财账户登录</a>-->
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- ****底部**** -->
+<!--#include virtual="/static/footer.html" -->
+<script type="text/javascript" src="/resource/js/jquery.validate.js"></script>
+<script type="text/javascript" src="/resource/js/common.js"></script>
+<script type="text/javascript" src="/resource/js/tab.js"></script>
+<script type="text/javascript" src="/resource/js/goldCard_login2.js"></script>
+<script type="text/javascript">
+    //随机切换左侧三张图；
+    var imgsArr = ["/resource/images/static/login_img.png","/resource/images/static/login_img1.png","/resource/images/static/login_img2.png"];
+    var rand = Math.floor(Math.random()*3);
+    $('.login_img img').attr('src',imgsArr[rand]);
+    $(".login_tab").myTab({tab_tit : ".login_tab_tit h2", tab_con : ".counter_con", classname : "state"});
+
+    function check_code(){
+        if($("#vertyCode").css("display") == "block"){
+            $("#divA").addClass("login_btnStyle2");
+        }else{
+            $("#divA").removeClass("login_btnStyle2");
+        }
+    }
+
+
+
+    function isMySubmit(){
+        $('#errorboxFlag').val('登录金库');
+    }
+    var flug = true;
+    $("#user_code").blur(function(){
+        var phone_ze = /^1[3|4|5|7|8][0-9]\d{4,8}$/;
+        if(!phone_ze.test($(this).val())){
+            $(this).next('span').css('display','block').removeClass('success').addClass('fail');
+            $('#errorbox').html("");
+            $('#errorbox').append("<label class='error'><font class='iconfont error_ico'>&#xe66b;</font>请输入正确的手机号码</label>");
+            return false;
+        }
+        $.ajax({
+            type : "post",
+            url : dynUrl + "/validation/checkUser",
+            data : {
+                json:function(){
+                    var _data = {
+                        'username' :$("#user_code").val(),
+                        'userType' : '01',
+                        'type' : '1',
+                        'toUrl':'',
+                        'time' : new Date().getTime()
+                    };
+                    return JSON.stringify(_data);
+                }
+            },
+            dataType : "json",
+            success : function(data) {
+                if(data.error){
+                    if(data.error.type == '10032'){
+                        $('#errorbox').html("");
+                        $("#pass_bon").hide();
+                        $("#no_pay_pwd").show();
+                        $("#small_tit").show();
+                        $('.login_a_position').eq(0).children('a').not(':last').css('display','none');
+                        flug = false;
+                    }else{
+                        $('#user_code').next('span').css('display','block').removeClass('success').addClass('fail');
+                        $('#errorbox').html("");
+                        $('#errorbox').append("<label class='error'><font class='iconfont error_ico'>&#xe66b;;</font>"+data.error.errDesc.message+"</label>");
+                        flug = false;
+                    }
+                }else if(data.result.status.code == "1"){
+                    $("#pass_bon").show();
+                    $("#no_pay_pwd").hide();
+                    $("#small_tit").hide();
+                    $('#errorbox').html("");
+                    $('#user_code').next('span').css('display','block').removeClass('fail').addClass('success');
+                    $('.login_a_position').eq(0).children('a').not(':visible').css('display','');
+                    flug = true;
+                }
+            },
+            error : function(err, err1, err2) {
+            }
+        });
+    });
+    /*密码验证*/
+    $("#password").blur(function(){
+        var pwd_ze = /^(?!\d+$)(?![A-Za-z_]+$)[a-zA-Z_0-9]{8,16}$/;
+        if(!pwd_ze.test($(this).val())){
+            $('#errorbox2').html("");
+            $('#errorbox2').append("<label class='error'><font class='iconfont error_ico'>&#xe66b;</font>密码必须8-16位的字母,数字的组合</label>");
+            $(this).next('span').css('display','block').removeClass('success').addClass('fail');
+            return false;
+        }
+        else
+        {
+            $(this).next('span').css('display','block').removeClass('fail').addClass('success');
+            $('#errorbox2').html("");
+        }
+    })
+    //刷新验证码
+    function reflashImage(){
+        $("#verifyCode").val("");
+        var url = dynUrl + "/base/common/createChkcode?t="+new Date().getTime();
+        $("#verifyCode_true").attr("src",url);
+    }
+    //显示验证码
+    function changeImageCode(){
+        $("#vertyCode").css('display', 'block');
+        $("#verifyCode").removeAttr("disabled");
+        reflashImage();
+        check_code();
+    }
+    //禁用验证码
+    function shadownImageCode(){
+        $("#vertyCode").css('display', 'none');
+        $("#verifyCode").attr("disabled","disabled");
+        check_code();
+    }
+    $(function(){
+        jQuery.validator.addMethod("isMyPhone", function(value, element) {
+            var length = value.length;
+            var mobile = /^1[3|4|5|7|8][0-9]\d{4,8}$/;
+            return this.optional(element) || (length == 11 && mobile.test(value));
+        }, "用户账号不存在");
+        jQuery.validator.addMethod("isMyPasswd", function(value, element) {
+            var passwd = /^(?!\d+$)(?![A-Za-z_]+$)[a-zA-Z_0-9]{8,16}$/;
+            return this.optional(element) || passwd.test(value);
+        }, "密码必须8-16位的字母,数字的组合");
+        $("#submitForm").validate({
+            rules:{
+                userName:{
+                    required:true,
+                    isMyPhone:true
+                },
+                passWord:{
+                    required:true,
+                    minlength: 8,
+                    maxlength: 16,
+                    isMyPasswd: true
+                },
+                verifyCode:{
+                    required:true,
+                    minlength:6
+                }
+            },
+            messages: {
+                userName:{
+                    required:"请输入用户名"
+                },
+                passWord:{
+                    required:"请输入密码",
+                    minlength: "密码必须8-16位的字母,数字的组合",
+                    maxlength: "密码必须8-16位的字母,数字的组合"
+                },
+                //passWord:"请输入密码",
+                verifyCode:{
+                    required:"输入验证码",
+                    minlength:"验证码错误"
+                }
+            },
+            errorPlacement: function(error, element) {
+                if(element.is("#user_code") && $('#errorboxFlag').val()=='登录金库'){
+                    //清除错误信息并清除唯一提示标识
+                    $('#errorbox').children('label').remove();
+                    $('#errorbox').html("");
+                    $('#errorboxFlag').val("");
+                    error.appendTo($('#errorbox'));
+                    $('#errorbox').children('label').prepend("<font class='iconfont error_ico'>&#xe66b;</font>");
+                }
+                if(element.is("#password") && $('#errorboxFlag').val()=='登录金库'){
+                    //延迟0.1秒执行,否则出现闪顿
+                    setTimeout(function(){
+                        if(element.is("#password") && $('#errorboxFlag').val()=='登录金库'){
+                            $('#errorbox2').children('label').remove();
+                            $('#errorbox2').html("");
+                            $('#errorboxFlag').val("");
+                            error.appendTo($('#errorbox2'));
+                            $('#errorbox2').children('label').prepend("<font class='iconfont error_ico'>&#xe66b;</font>");
+                        }
+                    },100);
+                }
+                //延迟0.2秒执行--先验证密码，再验证验证码
+                if(element.is("#verifyCode") && $('#errorboxFlag').val()=='登录金库'){
+                    setTimeout(function(){
+                        if(element.is("#verifyCode") && $('#errorboxFlag').val()=='登录金库'){
+                            $('#errorbox').children('label').remove();
+                            $('#errorbox').html("");
+                            $('#errorboxFlag').val("");
+                            error.appendTo($('#errorbox'));
+                            $('#errorbox').children('label').prepend("<font class='iconfont error_ico'>&#xe66b;</font>");
+                        }
+                    },200);
+                }
+
+            },
+            //取消其他校验-为了只让确认触发，确认会清除错误信息
+            onsubmit:true ,
+            //提交时验证. 设置唯false就用其他方法去验证
+            onfocusout:false ,
+            //失去焦点是验证(不包括checkboxes/radio buttons)
+            onkeyup:false,
+            //在keyup时验证.
+            onclick:false,
+            //在checkboxes 和 radio 点击时验证
+            focusInvalid:false,
+            //提交表单后，未通过验证的表单(第一个或提交之前获得焦点的未通过验证的表单)会获得焦点
+            submitHandler: function() {
+                if(flug == false){return false;}
+                var username = $("#user_code").val();
+                var password = $("#password").val();
+                var verifyCode = $("#verifyCode").val();
+                var _data = {
+                    'username' : username,
+                    'password' : password,
+                    'mobileCode' : verifyCode,
+                    'userType' : '01',
+                    'type' : '1',
+                    'toUrl':'',
+                    'time' : new Date().getTime()
+                };
+                var dt = {
+                    json : JSON.stringify(_data)
+                };
+                $.ajax({
+                    type : "post",
+                    url : dynUrl + "/user/login",
+                    data :dt,
+                    dataType : "json",
+                    success : function(data) {
+                        if(data.error){
+                            if(data.error.type == "10038" || data.error.type =="30006"){
+                                //如果错误次数达到，则显示验证码框
+                                changeImageCode();
+                                $('.login_tab').css('height',482);
+                            }else{
+                                $('#errorbox3').html("");
+                                $('#errorbox3').append("<label class='error'><font class='iconfont error_ico'>&#xe66b;</font>"+data.error.errDesc.message+"</label>");
+                            }
+                        }else if(data.result.status.code == "1"){
+                            window.location.href = dynUrl + data.result.status.toUrl;
+                        }
+                    },
+                    error : function(err, err1, err2) {
+                    }
+                });
+            }
+        });
+        //大写字母锁定键是否开启
+        var capslock = true;
+        $('body').keydown(function(e){
+            e = e||window.event;
+            if(capslock && e.keyCode ==20)
+            {
+                //console.log('大写锁定打开');
+                $('#errorbox7').html("");
+                $('#errorbox7').append("<label class='error'><font class='iconfont error_ico'>&#xe66b;</font>大写字母锁定打开</label>");
+                capslock = false;
+            }
+            else if(capslock==false && e.keyCode == 20)
+            {
+                //onsole.log('大写锁定关闭');
+                $('#errorbox7').html("");
+                capslock = true;
+            }
+            else
+            {
+                return;
+            }
+        })
+
+    });
+    function set_password(){
+        var phone = $("#user_code").val();
+        window.location.href = dynUrl + "/static/set_password.html?phone_set=" + phone;
+    }
+</script>
+</body>
+</html>
