@@ -13,7 +13,7 @@
     </parent>
 
     <artifactId>project-consumer</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <name>project-consumer</name>
     <description>consumer</description>

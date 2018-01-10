@@ -8,6 +8,10 @@
     <link rel="stylesheet" type="text/css" href="resource/css/static.css"/>
     <link rel="stylesheet" type="text/css" href="resource/css/login_v1.css"/>
     <script src="/resource/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/resource/js/jquery.validate.js"></script>
+    <script type="text/javascript" src="/resource/js/common.js"></script>
+    <script type="text/javascript" src="/resource/js/tab.js"></script>
+    <script type="text/javascript" src="/resource/js/goldCard_login2.js"></script>
     <style>
         #errorbox,#errorbox2,#errorbox4{position: absolute; left: 36px; top: -40px;}
         #errorbox label.error,#errorbox2 label.error {color: #333; padding:8px; height:16px; line-height:16px; font-size:14px; font-weight: normal; width:278px; border:1px solid #fadcd3; display:block; background:#fdeee9;}
@@ -30,17 +34,14 @@
 
 <div class="con_width_1190">
     <div class="logo">
-        <a href="/index.html" class=""><img width="213" height="60" src="/resource/images/static/icon_logo.png"></a>
+
     </div>
     <div class="content_box">
-        <div class="login_img">
-            <img width="818" height="404" src="/resource/images/static/login_img.png">
-        </div>
+
         <div class="login_tab fl">
 
             <div class="login_tab_tit clearfix">
                 <h2 class="state">手机号登录</h2>
-                <h2>黄金卡登录</h2>
             </div>
             <div class="counter_con_box">
                 <div class="counter_con" style="display:block;">
@@ -91,57 +92,7 @@
                         <!--<a href="/static/reg_phone.html" class="login_register">使用第三方理财账户登录</a>-->
                     </form>
                 </div>
-                <div class="counter_con">
-                    <form action="" method="post" id="submitForm2">
-                        <div id="errorbox4"></div>
-                        <div id="errorbox5"></div>
-                        <div id="errorbox6"></div>
-                        <input type="hidden" id="errorboxFlag2" value="登录金库"/>
-                        <div class="login_divCon mar_t52 clearfix">
-                            <label class="login_labCon"><span class="iconfont">&#xe61c;</span></label>
-                            <input type="text" maxlength="19" class="login_inpCon" placeholder="黄金卡号" id="user_code2" name="userName">                     <span class="login_tips fail"></span>
-                        </div>
-                        <a class="no_pay_pwd" id="no_pay_pwd2" onclick="set_password2();">
-                            <span class="iconfont">&#xe656;</span>
-                            此账号尚未设置登录秘密，请点此设置
-                        </a>
-                        <div class="small_tit" id="small_tit2">
-                            <h3>温馨提示</h3>
-                            <ul>
-                                <li>1，黄金卡首次登录需要设置登录密码</li>
-                                <li>2，网上账户/手机账户/微信账户登录密码为同一密码</li>
-                            </ul>
-                        </div>
-                        <div id="pass_bon2">
-                            <div class="login_divCon clearfix" >
-                                <label class="login_labCon"><span class="iconfont">&#xe61f;</span></label>
-                                <input type="password" class="login_inpCon" placeholder="登录密码" id="password2" name="passWord">
-                                <span class="login_tips success"></span>
-                            </div>
-                            <div class="vertyCode clearfix" id="vertyCode2" style="display: none;">
-                                <div class="yan_code clearfix">
-                                    <label class="login_labCon"><span class="iconfont">&#xe620;</span></label>
-                                    <input type="text" disabled="disabled" maxlength="6" name="verifyCode" id="verifyCode"placeholder="验证码"/>
-                                </div>
-                                <img id="verifyCode_true2" onclick="reflashImage()" class="pic_code" src="resource/images/images/createChkcode.jpg" height="44" width="140">
-                                <span class="login_tips verifyCode_refresh"></span>
-                            </div>
-                            <!--<div class="vertyCode clearfix" style="display:none" id="vertyCode2">
-                                <img id="verifyCode_true2" onclick="reflashImage2()" class="pic_code" src="resource/images/images/createChkcode.jpg" height="26" width="100">
-                                <a href="javascript:void(0);" onclick="reflashImage2();">看不清楚换一张</a>
-                                <input disabled="disabled" maxlength="6" name="verifyCode" id="verifyCode2" type="text" placeholder="验证码" class="yan_code" >
-                            </div>-->
-                            <div class="login_a_position">
-                                <!--<label><span><input type="checkbox"/></span>记住用户名</label>-->
-                                <a href="/static/forget_password.html">忘记密码</a>
-                                <a class="login_divider"></a>
-                                <a href="/static/reg_phone.html">免费注册</a>
-                            </div>
-                            <input class="login_btnStyle" onclick="isMySubmit2();" id="divA2" type="submit" value="登 录"/>
-                        </div>
-                        <!--<a href="/static/reg_phone.html" class="login_register">使用第三方理财账户登录</a>-->
-                    </form>
-                </div>
+
             </div>
 
         </div>
@@ -151,17 +102,8 @@
 
 <!-- ****底部**** -->
 <!--#include virtual="/static/footer.html" -->
-<script type="text/javascript" src="/resource/js/jquery.validate.js"></script>
-<script type="text/javascript" src="/resource/js/common.js"></script>
-<script type="text/javascript" src="/resource/js/tab.js"></script>
-<script type="text/javascript" src="/resource/js/goldCard_login2.js"></script>
-<script type="text/javascript">
-    //随机切换左侧三张图；
-    var imgsArr = ["/resource/images/static/login_img.png","/resource/images/static/login_img1.png","/resource/images/static/login_img2.png"];
-    var rand = Math.floor(Math.random()*3);
-    $('.login_img img').attr('src',imgsArr[rand]);
-    $(".login_tab").myTab({tab_tit : ".login_tab_tit h2", tab_con : ".counter_con", classname : "state"});
 
+<script type="text/javascript">
     function check_code(){
         if($("#vertyCode").css("display") == "block"){
             $("#divA").addClass("login_btnStyle2");
@@ -184,7 +126,7 @@
             $('#errorbox').append("<label class='error'><font class='iconfont error_ico'>&#xe66b;</font>请输入正确的手机号码</label>");
             return false;
         }
-        $.ajax({
+        /*$.ajax({
             type : "post",
             url : dynUrl + "/validation/checkUser",
             data : {
@@ -227,7 +169,7 @@
             },
             error : function(err, err1, err2) {
             }
-        });
+        });*/
     });
     /*密码验证*/
     $("#password").blur(function(){
@@ -245,24 +187,24 @@
         }
     })
     //刷新验证码
-    function reflashImage(){
+    /*function reflashImage(){
         $("#verifyCode").val("");
         var url = dynUrl + "/base/common/createChkcode?t="+new Date().getTime();
         $("#verifyCode_true").attr("src",url);
-    }
+    }*/
     //显示验证码
-    function changeImageCode(){
+    /*function changeImageCode(){
         $("#vertyCode").css('display', 'block');
         $("#verifyCode").removeAttr("disabled");
         reflashImage();
         check_code();
-    }
+    }*/
     //禁用验证码
-    function shadownImageCode(){
+    /*function shadownImageCode(){
         $("#vertyCode").css('display', 'none');
         $("#verifyCode").attr("disabled","disabled");
         check_code();
-    }
+    }*/
     $(function(){
         jQuery.validator.addMethod("isMyPhone", function(value, element) {
             var length = value.length;
@@ -305,7 +247,7 @@
                     minlength:"验证码错误"
                 }
             },
-            errorPlacement: function(error, element) {
+            /*errorPlacement: function(error, element) {
                 if(element.is("#user_code") && $('#errorboxFlag').val()=='登录金库'){
                     //清除错误信息并清除唯一提示标识
                     $('#errorbox').children('label').remove();
@@ -339,7 +281,7 @@
                     },200);
                 }
 
-            },
+            },*/
             //取消其他校验-为了只让确认触发，确认会清除错误信息
             onsubmit:true ,
             //提交时验证. 设置唯false就用其他方法去验证
@@ -416,10 +358,10 @@
         })
 
     });
-    function set_password(){
+    /*function set_password(){
         var phone = $("#user_code").val();
         window.location.href = dynUrl + "/static/set_password.html?phone_set=" + phone;
-    }
+    }*/
 </script>
 </body>
 </html>
