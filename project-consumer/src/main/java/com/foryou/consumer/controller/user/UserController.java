@@ -22,7 +22,8 @@ public class UserController {
     public void UserLogin(HttpServletRequest request, HttpServletResponse response, String callback,
                           @RequestParam String json
     ) throws Exception{
-        System.out.println("sdafadsf");
+        System.out.println("sdafadsf66666666666666");
+        System.out.printf("json %s", json);
 //        userProcess.login(request, response, callback, json);
     }
 }
