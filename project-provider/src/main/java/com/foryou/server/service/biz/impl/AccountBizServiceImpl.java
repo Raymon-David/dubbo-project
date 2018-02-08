@@ -21,12 +21,12 @@ import java.util.stream.Collectors;
 
 /**
  * 服务接口业务逻辑
+ * @author Raymon
+ * @date
  */
 @Service
 public class AccountBizServiceImpl implements AccountBizService {
 
-
-    @Autowired
     private AccountMapper accountMapper;
 
     @Override
