@@ -1,7 +1,6 @@
 package com.foryou.consumer.process.user;
 
 import com.alibaba.dubbo.common.utils.StringUtils;
-import com.alibaba.dubbo.config.annotation.Service;
 import com.foryou.api.bean.ConstClass;
 import com.foryou.api.bean.ErrorBean;
 import com.foryou.api.bean.ResultBean;
@@ -25,6 +24,8 @@ import com.foryou.consumer.util.MemberTools;
 import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,7 +34,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-@Service
+@ComponentScan
+@Service(value = "UserProcess")
 public class UserProcess extends BaseProcess {
 
     private Logger logger = Logger.getLogger(UserProcess.class);
