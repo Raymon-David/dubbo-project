@@ -26,7 +26,7 @@ public class UserController {
                           @RequestParam String json
     ) throws Exception{
         System.out.println("sdafadsf66666666666666");
-        System.out.printf("json %s", json);
+        System.out.printf("json is : %s", json);
         userProcess.login(request, response, callback, json);
     }
 }
