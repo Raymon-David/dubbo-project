@@ -4,9 +4,7 @@ import com.foryou.consumer.process.user.UserProcess;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +18,13 @@ public class UserController {
     @Autowired
     private UserProcess userProcess;
 
+
+    @RequestMapping(value ="/hello", method = RequestMethod.GET)
+    @ResponseBody
+    public String hello(){
+        System.out.println("sdafadsf675878745784876");
+        return "hello world";
+    }
 
     @RequestMapping(value = "/login")
     public void UserLogin(HttpServletRequest request, HttpServletResponse response, String callback,
