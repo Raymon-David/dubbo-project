@@ -17,8 +17,8 @@ public class UserIdController {
         try {
             String sy = "0c95ab2ec86a4a018f77eb56d7ed26e7";
             String account = URLEncoder.encode("DCFL0011", "utf-8");
-            String custIdNumber = "140602199104028516";
-            String custNm = "张卫国";
+            String custIdNumber = "610404199401313019";
+            String custNm = "梁鑫龙";
             //				 生成一个MD5加密计算摘要
             MessageDigest md = MessageDigest.getInstance("MD5");
             // 计算md5函数
